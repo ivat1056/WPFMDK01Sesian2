@@ -23,6 +23,7 @@ namespace WPFMDK01Sesian2
         public MainWindow()
         {
             InitializeComponent();
+            Base.ep = new EP();
         }
     }
 }

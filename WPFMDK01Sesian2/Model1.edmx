@@ -1,0 +1,1344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище CRM15Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="SubscriberID" />
+          </Key>
+          <Property Name="SubscriberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubscriberNomer" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GenderID" Type="int" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Place0fResidence" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ResidentialAddressID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Seria" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="Nomer" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="DivisionCode" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="IssuedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfIssue" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConnectingTheService">
+          <Key>
+            <PropertyRef Name="IDOfTheConnectedService" />
+          </Key>
+          <Property Name="IDOfTheConnectedService" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDServices" Type="int" Nullable="false" />
+          <Property Name="SubscribersID" Type="int" Nullable="false" />
+          <Property Name="ConnectionDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="SubscribersID" />
+          </Key>
+          <Property Name="SubscribersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContractNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DateOfCinclusion" Type="date" Nullable="false" />
+          <Property Name="TypeContractID" Type="int" Nullable="false" />
+          <Property Name="PersonalAccount" Type="int" Nullable="false" />
+          <Property Name="ReasonForTerminationID" Type="int" />
+          <Property Name="TermibationDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Emploe">
+          <Key>
+            <PropertyRef Name="IDEmploys" />
+          </Key>
+          <Property Name="IDEmploys" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
+          <Property Name="image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="IDEquipment" />
+          </Key>
+          <Property Name="IDEquipment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameOfEquipment" Type="nvarchar(max)" />
+          <Property Name="IDType" Type="int" Nullable="false" />
+          <Property Name="IDMac" Type="int" />
+          <Property Name="IDSerial" Type="int" Nullable="false" />
+          <Property Name="Specifications" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="IDGende" />
+          </Key>
+          <Property Name="IDGende" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstallationEquipment">
+          <Key>
+            <PropertyRef Name="InstallationEquipmentID" />
+          </Key>
+          <Property Name="InstallationEquipmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InstallationDate" Type="date" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="EquipmentID" Type="int" Nullable="false" />
+          <Property Name="SubscriberID" Type="int" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="400" />
+          <Property Name="Rental" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KindsAndTypesService">
+          <Key>
+            <PropertyRef Name="KindsAndTypesServiceID" />
+          </Key>
+          <Property Name="KindsAndTypesServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeOfServiceID" Type="int" Nullable="false" />
+          <Property Name="ServiceType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MACAdress">
+          <Key>
+            <PropertyRef Name="IDMACAdress" />
+          </Key>
+          <Property Name="IDMACAdress" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adress" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MainService">
+          <Key>
+            <PropertyRef Name="CRMID" />
+          </Key>
+          <Property Name="CRMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumberCRM" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateCreation" Type="date" Nullable="false" />
+          <Property Name="SubscriberID" Type="int" Nullable="false" />
+          <Property Name="ServicesID" Type="int" Nullable="false" />
+          <Property Name="ServiceTypeID" Type="int" Nullable="false" />
+          <Property Name="ServiceStatusID" Type="int" Nullable="false" />
+          <Property Name="ProblemTypeID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ClosingDate" Type="date" />
+          <Property Name="TypeOfServiceID" Type="int" />
+        </EntityType>
+        <EntityType Name="Reasons">
+          <Key>
+            <PropertyRef Name="IDReasons" />
+          </Key>
+          <Property Name="IDReasons" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rols">
+          <Key>
+            <PropertyRef Name="IDRole" />
+          </Key>
+          <Property Name="IDRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SerialNumbers">
+          <Key>
+            <PropertyRef Name="IDSerialNumbers" />
+          </Key>
+          <Property Name="IDSerialNumbers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Adress" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Servise">
+          <Key>
+            <PropertyRef Name="ServicesID" />
+          </Key>
+          <Property Name="ServicesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Services" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="IDStatus" />
+          </Key>
+          <Property Name="IDStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeEquipments">
+          <Key>
+            <PropertyRef Name="IDTypeEquipment" />
+          </Key>
+          <Property Name="IDTypeEquipment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeOfService">
+          <Key>
+            <PropertyRef Name="TypeOfServiceID" />
+          </Key>
+          <Property Name="TypeOfServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeOfService" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeProblems">
+          <Key>
+            <PropertyRef Name="IDTypesOfProblems" />
+          </Key>
+          <Property Name="IDTypesOfProblems" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Problem" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypesOfContracts">
+          <Key>
+            <PropertyRef Name="IDOfTheContract" />
+          </Key>
+          <Property Name="IDOfTheContract" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypesServices">
+          <Key>
+            <PropertyRef Name="IDTypeServices" />
+          </Key>
+          <Property Name="IDTypeServices" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Clients_Contracts">
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="SubscribersID" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="SubscriberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="IDGende" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="GenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConnectingTheService_Contracts">
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="1" />
+          <End Role="ConnectingTheService" Type="Self.ConnectingTheService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="SubscribersID" />
+            </Principal>
+            <Dependent Role="ConnectingTheService">
+              <PropertyRef Name="SubscribersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConnectingTheService_Servise">
+          <End Role="Servise" Type="Self.Servise" Multiplicity="1" />
+          <End Role="ConnectingTheService" Type="Self.ConnectingTheService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servise">
+              <PropertyRef Name="ServicesID" />
+            </Principal>
+            <Dependent Role="ConnectingTheService">
+              <PropertyRef Name="IDServices" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contracts_Reasons">
+          <End Role="Reasons" Type="Self.Reasons" Multiplicity="0..1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reasons">
+              <PropertyRef Name="IDReasons" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="ReasonForTerminationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contracts_TypesOfContracts">
+          <End Role="TypesOfContracts" Type="Self.TypesOfContracts" Multiplicity="1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfContracts">
+              <PropertyRef Name="IDOfTheContract" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="TypeContractID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emploe_Rols">
+          <End Role="Rols" Type="Self.Rols" Multiplicity="1" />
+          <End Role="Emploe" Type="Self.Emploe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rols">
+              <PropertyRef Name="IDRole" />
+            </Principal>
+            <Dependent Role="Emploe">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_SerialNumbers">
+          <End Role="SerialNumbers" Type="Self.SerialNumbers" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SerialNumbers">
+              <PropertyRef Name="IDSerialNumbers" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IDSerial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_TypeEquipments">
+          <End Role="TypeEquipments" Type="Self.TypeEquipments" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeEquipments">
+              <PropertyRef Name="IDTypeEquipment" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IDType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstallationEquipment_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="InstallationEquipment" Type="Self.InstallationEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="SubscriberID" />
+            </Principal>
+            <Dependent Role="InstallationEquipment">
+              <PropertyRef Name="SubscriberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstallationEquipment_Emploe">
+          <End Role="Emploe" Type="Self.Emploe" Multiplicity="0..1" />
+          <End Role="InstallationEquipment" Type="Self.InstallationEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emploe">
+              <PropertyRef Name="IDEmploys" />
+            </Principal>
+            <Dependent Role="InstallationEquipment">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstallationEquipment_Equipment">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="InstallationEquipment" Type="Self.InstallationEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="IDEquipment" />
+            </Principal>
+            <Dependent Role="InstallationEquipment">
+              <PropertyRef Name="EquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KindsAndTypesService_TypeOfService">
+          <End Role="TypeOfService" Type="Self.TypeOfService" Multiplicity="1" />
+          <End Role="KindsAndTypesService" Type="Self.KindsAndTypesService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfService">
+              <PropertyRef Name="TypeOfServiceID" />
+            </Principal>
+            <Dependent Role="KindsAndTypesService">
+              <PropertyRef Name="TypeOfServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KindsAndTypesService_TypesServices">
+          <End Role="TypesServices" Type="Self.TypesServices" Multiplicity="1" />
+          <End Role="KindsAndTypesService" Type="Self.KindsAndTypesService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesServices">
+              <PropertyRef Name="IDTypeServices" />
+            </Principal>
+            <Dependent Role="KindsAndTypesService">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="SubscriberID" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="SubscriberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_Servise">
+          <End Role="Servise" Type="Self.Servise" Multiplicity="1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servise">
+              <PropertyRef Name="ServicesID" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="ServicesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="IDStatus" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="ServiceStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_TypeOfService">
+          <End Role="TypeOfService" Type="Self.TypeOfService" Multiplicity="0..1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfService">
+              <PropertyRef Name="TypeOfServiceID" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="TypeOfServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_TypeProblems">
+          <End Role="TypeProblems" Type="Self.TypeProblems" Multiplicity="1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeProblems">
+              <PropertyRef Name="IDTypesOfProblems" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="ProblemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_TypesServices">
+          <End Role="TypesServices" Type="Self.TypesServices" Multiplicity="1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesServices">
+              <PropertyRef Name="IDTypeServices" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="ServiceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище CRM15ModelContainer">
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConnectingTheService" EntityType="Self.ConnectingTheService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contracts" EntityType="Self.Contracts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emploe" EntityType="Self.Emploe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstallationEquipment" EntityType="Self.InstallationEquipment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KindsAndTypesService" EntityType="Self.KindsAndTypesService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MACAdress" EntityType="Self.MACAdress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MainService" EntityType="Self.MainService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reasons" EntityType="Self.Reasons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rols" EntityType="Self.Rols" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SerialNumbers" EntityType="Self.SerialNumbers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servise" EntityType="Self.Servise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeEquipments" EntityType="Self.TypeEquipments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeOfService" EntityType="Self.TypeOfService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeProblems" EntityType="Self.TypeProblems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesOfContracts" EntityType="Self.TypesOfContracts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypesServices" EntityType="Self.TypesServices" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Clients_Contracts" Association="Self.FK_Clients_Contracts">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients_Gender" Association="Self.FK_Clients_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConnectingTheService_Contracts" Association="Self.FK_ConnectingTheService_Contracts">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="ConnectingTheService" EntitySet="ConnectingTheService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConnectingTheService_Servise" Association="Self.FK_ConnectingTheService_Servise">
+            <End Role="Servise" EntitySet="Servise" />
+            <End Role="ConnectingTheService" EntitySet="ConnectingTheService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_Reasons" Association="Self.FK_Contracts_Reasons">
+            <End Role="Reasons" EntitySet="Reasons" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_TypesOfContracts" Association="Self.FK_Contracts_TypesOfContracts">
+            <End Role="TypesOfContracts" EntitySet="TypesOfContracts" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emploe_Rols" Association="Self.FK_Emploe_Rols">
+            <End Role="Rols" EntitySet="Rols" />
+            <End Role="Emploe" EntitySet="Emploe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_SerialNumbers" Association="Self.FK_Equipment_SerialNumbers">
+            <End Role="SerialNumbers" EntitySet="SerialNumbers" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_TypeEquipments" Association="Self.FK_Equipment_TypeEquipments">
+            <End Role="TypeEquipments" EntitySet="TypeEquipments" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstallationEquipment_Clients" Association="Self.FK_InstallationEquipment_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="InstallationEquipment" EntitySet="InstallationEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstallationEquipment_Emploe" Association="Self.FK_InstallationEquipment_Emploe">
+            <End Role="Emploe" EntitySet="Emploe" />
+            <End Role="InstallationEquipment" EntitySet="InstallationEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstallationEquipment_Equipment" Association="Self.FK_InstallationEquipment_Equipment">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="InstallationEquipment" EntitySet="InstallationEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KindsAndTypesService_TypeOfService" Association="Self.FK_KindsAndTypesService_TypeOfService">
+            <End Role="TypeOfService" EntitySet="TypeOfService" />
+            <End Role="KindsAndTypesService" EntitySet="KindsAndTypesService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KindsAndTypesService_TypesServices" Association="Self.FK_KindsAndTypesService_TypesServices">
+            <End Role="TypesServices" EntitySet="TypesServices" />
+            <End Role="KindsAndTypesService" EntitySet="KindsAndTypesService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_Clients" Association="Self.FK_MainService_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_Servise" Association="Self.FK_MainService_Servise">
+            <End Role="Servise" EntitySet="Servise" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_Status" Association="Self.FK_MainService_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_TypeOfService" Association="Self.FK_MainService_TypeOfService">
+            <End Role="TypeOfService" EntitySet="TypeOfService" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_TypeProblems" Association="Self.FK_MainService_TypeProblems">
+            <End Role="TypeProblems" EntitySet="TypeProblems" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_TypesServices" Association="Self.FK_MainService_TypesServices">
+            <End Role="TypesServices" EntitySet="TypesServices" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CRM15Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="SubscriberID" />
+          </Key>
+          <Property Name="SubscriberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubscriberNomer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GenderID" Type="Int32" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Place0fResidence" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResidentialAddressID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Seria" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nomer" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DivisionCode" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IssuedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfIssue" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_Clients_Contracts" FromRole="Clients" ToRole="Contracts" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK_Clients_Gender" FromRole="Clients" ToRole="Gender" />
+          <NavigationProperty Name="InstallationEquipment" Relationship="Self.FK_InstallationEquipment_Clients" FromRole="Clients" ToRole="InstallationEquipment" />
+          <NavigationProperty Name="MainService" Relationship="Self.FK_MainService_Clients" FromRole="Clients" ToRole="MainService" />
+        </EntityType>
+        <EntityType Name="ConnectingTheService">
+          <Key>
+            <PropertyRef Name="IDOfTheConnectedService" />
+          </Key>
+          <Property Name="IDOfTheConnectedService" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDServices" Type="Int32" Nullable="false" />
+          <Property Name="SubscribersID" Type="Int32" Nullable="false" />
+          <Property Name="ConnectionDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_ConnectingTheService_Contracts" FromRole="ConnectingTheService" ToRole="Contracts" />
+          <NavigationProperty Name="Servise" Relationship="Self.FK_ConnectingTheService_Servise" FromRole="ConnectingTheService" ToRole="Servise" />
+        </EntityType>
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="SubscribersID" />
+          </Key>
+          <Property Name="SubscribersID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContractNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfCinclusion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TypeContractID" Type="Int32" Nullable="false" />
+          <Property Name="PersonalAccount" Type="Int32" Nullable="false" />
+          <Property Name="ReasonForTerminationID" Type="Int32" />
+          <Property Name="TermibationDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Clients_Contracts" FromRole="Contracts" ToRole="Clients" />
+          <NavigationProperty Name="ConnectingTheService" Relationship="Self.FK_ConnectingTheService_Contracts" FromRole="Contracts" ToRole="ConnectingTheService" />
+          <NavigationProperty Name="Reasons" Relationship="Self.FK_Contracts_Reasons" FromRole="Contracts" ToRole="Reasons" />
+          <NavigationProperty Name="TypesOfContracts" Relationship="Self.FK_Contracts_TypesOfContracts" FromRole="Contracts" ToRole="TypesOfContracts" />
+        </EntityType>
+        <EntityType Name="Emploe">
+          <Key>
+            <PropertyRef Name="IDEmploys" />
+          </Key>
+          <Property Name="IDEmploys" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rols" Relationship="Self.FK_Emploe_Rols" FromRole="Emploe" ToRole="Rols" />
+          <NavigationProperty Name="InstallationEquipment" Relationship="Self.FK_InstallationEquipment_Emploe" FromRole="Emploe" ToRole="InstallationEquipment" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="IDEquipment" />
+          </Key>
+          <Property Name="IDEquipment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameOfEquipment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IDType" Type="Int32" Nullable="false" />
+          <Property Name="IDMac" Type="Int32" />
+          <Property Name="IDSerial" Type="Int32" Nullable="false" />
+          <Property Name="Specifications" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SerialNumbers" Relationship="Self.FK_Equipment_SerialNumbers" FromRole="Equipment" ToRole="SerialNumbers" />
+          <NavigationProperty Name="TypeEquipments" Relationship="Self.FK_Equipment_TypeEquipments" FromRole="Equipment" ToRole="TypeEquipments" />
+          <NavigationProperty Name="InstallationEquipment" Relationship="Self.FK_InstallationEquipment_Equipment" FromRole="Equipment" ToRole="InstallationEquipment" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="IDGende" />
+          </Key>
+          <Property Name="IDGende" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_Clients_Gender" FromRole="Gender" ToRole="Clients" />
+        </EntityType>
+        <EntityType Name="InstallationEquipment">
+          <Key>
+            <PropertyRef Name="InstallationEquipmentID" />
+          </Key>
+          <Property Name="InstallationEquipmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InstallationDate" Type="DateTime" Precision="0" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="EquipmentID" Type="Int32" Nullable="false" />
+          <Property Name="SubscriberID" Type="Int32" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Rental" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_InstallationEquipment_Clients" FromRole="InstallationEquipment" ToRole="Clients" />
+          <NavigationProperty Name="Emploe" Relationship="Self.FK_InstallationEquipment_Emploe" FromRole="InstallationEquipment" ToRole="Emploe" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_InstallationEquipment_Equipment" FromRole="InstallationEquipment" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="KindsAndTypesService">
+          <Key>
+            <PropertyRef Name="KindsAndTypesServiceID" />
+          </Key>
+          <Property Name="KindsAndTypesServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeOfServiceID" Type="Int32" Nullable="false" />
+          <Property Name="ServiceType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypeOfService" Relationship="Self.FK_KindsAndTypesService_TypeOfService" FromRole="KindsAndTypesService" ToRole="TypeOfService" />
+          <NavigationProperty Name="TypesServices" Relationship="Self.FK_KindsAndTypesService_TypesServices" FromRole="KindsAndTypesService" ToRole="TypesServices" />
+        </EntityType>
+        <EntityType Name="MACAdress">
+          <Key>
+            <PropertyRef Name="IDMACAdress" />
+          </Key>
+          <Property Name="IDMACAdress" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MainService">
+          <Key>
+            <PropertyRef Name="CRMID" />
+          </Key>
+          <Property Name="CRMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumberCRM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateCreation" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SubscriberID" Type="Int32" Nullable="false" />
+          <Property Name="ServicesID" Type="Int32" Nullable="false" />
+          <Property Name="ServiceTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ServiceStatusID" Type="Int32" Nullable="false" />
+          <Property Name="ProblemTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClosingDate" Type="DateTime" Precision="0" />
+          <Property Name="TypeOfServiceID" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_MainService_Clients" FromRole="MainService" ToRole="Clients" />
+          <NavigationProperty Name="Servise" Relationship="Self.FK_MainService_Servise" FromRole="MainService" ToRole="Servise" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_MainService_Status" FromRole="MainService" ToRole="Status" />
+          <NavigationProperty Name="TypeOfService" Relationship="Self.FK_MainService_TypeOfService" FromRole="MainService" ToRole="TypeOfService" />
+          <NavigationProperty Name="TypeProblems" Relationship="Self.FK_MainService_TypeProblems" FromRole="MainService" ToRole="TypeProblems" />
+          <NavigationProperty Name="TypesServices" Relationship="Self.FK_MainService_TypesServices" FromRole="MainService" ToRole="TypesServices" />
+        </EntityType>
+        <EntityType Name="Reasons">
+          <Key>
+            <PropertyRef Name="IDReasons" />
+          </Key>
+          <Property Name="IDReasons" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_Reasons" FromRole="Reasons" ToRole="Contracts" />
+        </EntityType>
+        <EntityType Name="Rols">
+          <Key>
+            <PropertyRef Name="IDRole" />
+          </Key>
+          <Property Name="IDRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Emploe" Relationship="Self.FK_Emploe_Rols" FromRole="Rols" ToRole="Emploe" />
+        </EntityType>
+        <EntityType Name="SerialNumbers">
+          <Key>
+            <PropertyRef Name="IDSerialNumbers" />
+          </Key>
+          <Property Name="IDSerialNumbers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_Equipment_SerialNumbers" FromRole="SerialNumbers" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="Servise">
+          <Key>
+            <PropertyRef Name="ServicesID" />
+          </Key>
+          <Property Name="ServicesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Services" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ConnectingTheService" Relationship="Self.FK_ConnectingTheService_Servise" FromRole="Servise" ToRole="ConnectingTheService" />
+          <NavigationProperty Name="MainService" Relationship="Self.FK_MainService_Servise" FromRole="Servise" ToRole="MainService" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="IDStatus" />
+          </Key>
+          <Property Name="IDStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MainService" Relationship="Self.FK_MainService_Status" FromRole="Status" ToRole="MainService" />
+        </EntityType>
+        <EntityType Name="TypeEquipments">
+          <Key>
+            <PropertyRef Name="IDTypeEquipment" />
+          </Key>
+          <Property Name="IDTypeEquipment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_Equipment_TypeEquipments" FromRole="TypeEquipments" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="TypeOfService">
+          <Key>
+            <PropertyRef Name="TypeOfServiceID" />
+          </Key>
+          <Property Name="TypeOfServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeOfService1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="KindsAndTypesService" Relationship="Self.FK_KindsAndTypesService_TypeOfService" FromRole="TypeOfService" ToRole="KindsAndTypesService" />
+          <NavigationProperty Name="MainService" Relationship="Self.FK_MainService_TypeOfService" FromRole="TypeOfService" ToRole="MainService" />
+        </EntityType>
+        <EntityType Name="TypeProblems">
+          <Key>
+            <PropertyRef Name="IDTypesOfProblems" />
+          </Key>
+          <Property Name="IDTypesOfProblems" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Problem" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MainService" Relationship="Self.FK_MainService_TypeProblems" FromRole="TypeProblems" ToRole="MainService" />
+        </EntityType>
+        <EntityType Name="TypesOfContracts">
+          <Key>
+            <PropertyRef Name="IDOfTheContract" />
+          </Key>
+          <Property Name="IDOfTheContract" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_Contracts_TypesOfContracts" FromRole="TypesOfContracts" ToRole="Contracts" />
+        </EntityType>
+        <EntityType Name="TypesServices">
+          <Key>
+            <PropertyRef Name="IDTypeServices" />
+          </Key>
+          <Property Name="IDTypeServices" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KindsAndTypesService" Relationship="Self.FK_KindsAndTypesService_TypesServices" FromRole="TypesServices" ToRole="KindsAndTypesService" />
+          <NavigationProperty Name="MainService" Relationship="Self.FK_MainService_TypesServices" FromRole="TypesServices" ToRole="MainService" />
+        </EntityType>
+        <Association Name="FK_Clients_Contracts">
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="SubscribersID" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="SubscriberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Clients_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+          <End Role="Clients" Type="Self.Clients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="IDGende" />
+            </Principal>
+            <Dependent Role="Clients">
+              <PropertyRef Name="GenderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstallationEquipment_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="InstallationEquipment" Type="Self.InstallationEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="SubscriberID" />
+            </Principal>
+            <Dependent Role="InstallationEquipment">
+              <PropertyRef Name="SubscriberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_Clients">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="SubscriberID" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="SubscriberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConnectingTheService_Contracts">
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="1" />
+          <End Role="ConnectingTheService" Type="Self.ConnectingTheService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contracts">
+              <PropertyRef Name="SubscribersID" />
+            </Principal>
+            <Dependent Role="ConnectingTheService">
+              <PropertyRef Name="SubscribersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConnectingTheService_Servise">
+          <End Role="Servise" Type="Self.Servise" Multiplicity="1" />
+          <End Role="ConnectingTheService" Type="Self.ConnectingTheService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servise">
+              <PropertyRef Name="ServicesID" />
+            </Principal>
+            <Dependent Role="ConnectingTheService">
+              <PropertyRef Name="IDServices" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contracts_Reasons">
+          <End Role="Reasons" Type="Self.Reasons" Multiplicity="0..1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reasons">
+              <PropertyRef Name="IDReasons" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="ReasonForTerminationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contracts_TypesOfContracts">
+          <End Role="TypesOfContracts" Type="Self.TypesOfContracts" Multiplicity="1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfContracts">
+              <PropertyRef Name="IDOfTheContract" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="TypeContractID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emploe_Rols">
+          <End Role="Rols" Type="Self.Rols" Multiplicity="1" />
+          <End Role="Emploe" Type="Self.Emploe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rols">
+              <PropertyRef Name="IDRole" />
+            </Principal>
+            <Dependent Role="Emploe">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstallationEquipment_Emploe">
+          <End Role="Emploe" Type="Self.Emploe" Multiplicity="0..1" />
+          <End Role="InstallationEquipment" Type="Self.InstallationEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emploe">
+              <PropertyRef Name="IDEmploys" />
+            </Principal>
+            <Dependent Role="InstallationEquipment">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_SerialNumbers">
+          <End Role="SerialNumbers" Type="Self.SerialNumbers" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SerialNumbers">
+              <PropertyRef Name="IDSerialNumbers" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IDSerial" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_TypeEquipments">
+          <End Role="TypeEquipments" Type="Self.TypeEquipments" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeEquipments">
+              <PropertyRef Name="IDTypeEquipment" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IDType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstallationEquipment_Equipment">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+          <End Role="InstallationEquipment" Type="Self.InstallationEquipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="IDEquipment" />
+            </Principal>
+            <Dependent Role="InstallationEquipment">
+              <PropertyRef Name="EquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KindsAndTypesService_TypeOfService">
+          <End Role="TypeOfService" Type="Self.TypeOfService" Multiplicity="1" />
+          <End Role="KindsAndTypesService" Type="Self.KindsAndTypesService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfService">
+              <PropertyRef Name="TypeOfServiceID" />
+            </Principal>
+            <Dependent Role="KindsAndTypesService">
+              <PropertyRef Name="TypeOfServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KindsAndTypesService_TypesServices">
+          <End Role="TypesServices" Type="Self.TypesServices" Multiplicity="1" />
+          <End Role="KindsAndTypesService" Type="Self.KindsAndTypesService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesServices">
+              <PropertyRef Name="IDTypeServices" />
+            </Principal>
+            <Dependent Role="KindsAndTypesService">
+              <PropertyRef Name="ServiceType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_Servise">
+          <End Role="Servise" Type="Self.Servise" Multiplicity="1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servise">
+              <PropertyRef Name="ServicesID" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="ServicesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="IDStatus" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="ServiceStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_TypeOfService">
+          <End Role="TypeOfService" Type="Self.TypeOfService" Multiplicity="0..1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfService">
+              <PropertyRef Name="TypeOfServiceID" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="TypeOfServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_TypeProblems">
+          <End Role="TypeProblems" Type="Self.TypeProblems" Multiplicity="1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeProblems">
+              <PropertyRef Name="IDTypesOfProblems" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="ProblemTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MainService_TypesServices">
+          <End Role="TypesServices" Type="Self.TypesServices" Multiplicity="1" />
+          <End Role="MainService" Type="Self.MainService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesServices">
+              <PropertyRef Name="IDTypeServices" />
+            </Principal>
+            <Dependent Role="MainService">
+              <PropertyRef Name="ServiceTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EP" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="ConnectingTheService" EntityType="Self.ConnectingTheService" />
+          <EntitySet Name="Contracts" EntityType="Self.Contracts" />
+          <EntitySet Name="Emploe" EntityType="Self.Emploe" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" />
+          <EntitySet Name="InstallationEquipment" EntityType="Self.InstallationEquipment" />
+          <EntitySet Name="KindsAndTypesService" EntityType="Self.KindsAndTypesService" />
+          <EntitySet Name="MACAdress" EntityType="Self.MACAdress" />
+          <EntitySet Name="MainService" EntityType="Self.MainService" />
+          <EntitySet Name="Reasons" EntityType="Self.Reasons" />
+          <EntitySet Name="Rols" EntityType="Self.Rols" />
+          <EntitySet Name="SerialNumbers" EntityType="Self.SerialNumbers" />
+          <EntitySet Name="Servise" EntityType="Self.Servise" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="TypeEquipments" EntityType="Self.TypeEquipments" />
+          <EntitySet Name="TypeOfService" EntityType="Self.TypeOfService" />
+          <EntitySet Name="TypeProblems" EntityType="Self.TypeProblems" />
+          <EntitySet Name="TypesOfContracts" EntityType="Self.TypesOfContracts" />
+          <EntitySet Name="TypesServices" EntityType="Self.TypesServices" />
+          <AssociationSet Name="FK_Clients_Contracts" Association="Self.FK_Clients_Contracts">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clients_Gender" Association="Self.FK_Clients_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Clients" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstallationEquipment_Clients" Association="Self.FK_InstallationEquipment_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="InstallationEquipment" EntitySet="InstallationEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_Clients" Association="Self.FK_MainService_Clients">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConnectingTheService_Contracts" Association="Self.FK_ConnectingTheService_Contracts">
+            <End Role="Contracts" EntitySet="Contracts" />
+            <End Role="ConnectingTheService" EntitySet="ConnectingTheService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConnectingTheService_Servise" Association="Self.FK_ConnectingTheService_Servise">
+            <End Role="Servise" EntitySet="Servise" />
+            <End Role="ConnectingTheService" EntitySet="ConnectingTheService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_Reasons" Association="Self.FK_Contracts_Reasons">
+            <End Role="Reasons" EntitySet="Reasons" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contracts_TypesOfContracts" Association="Self.FK_Contracts_TypesOfContracts">
+            <End Role="TypesOfContracts" EntitySet="TypesOfContracts" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emploe_Rols" Association="Self.FK_Emploe_Rols">
+            <End Role="Rols" EntitySet="Rols" />
+            <End Role="Emploe" EntitySet="Emploe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstallationEquipment_Emploe" Association="Self.FK_InstallationEquipment_Emploe">
+            <End Role="Emploe" EntitySet="Emploe" />
+            <End Role="InstallationEquipment" EntitySet="InstallationEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_SerialNumbers" Association="Self.FK_Equipment_SerialNumbers">
+            <End Role="SerialNumbers" EntitySet="SerialNumbers" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_TypeEquipments" Association="Self.FK_Equipment_TypeEquipments">
+            <End Role="TypeEquipments" EntitySet="TypeEquipments" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstallationEquipment_Equipment" Association="Self.FK_InstallationEquipment_Equipment">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="InstallationEquipment" EntitySet="InstallationEquipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KindsAndTypesService_TypeOfService" Association="Self.FK_KindsAndTypesService_TypeOfService">
+            <End Role="TypeOfService" EntitySet="TypeOfService" />
+            <End Role="KindsAndTypesService" EntitySet="KindsAndTypesService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KindsAndTypesService_TypesServices" Association="Self.FK_KindsAndTypesService_TypesServices">
+            <End Role="TypesServices" EntitySet="TypesServices" />
+            <End Role="KindsAndTypesService" EntitySet="KindsAndTypesService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_Servise" Association="Self.FK_MainService_Servise">
+            <End Role="Servise" EntitySet="Servise" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_Status" Association="Self.FK_MainService_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_TypeOfService" Association="Self.FK_MainService_TypeOfService">
+            <End Role="TypeOfService" EntitySet="TypeOfService" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_TypeProblems" Association="Self.FK_MainService_TypeProblems">
+            <End Role="TypeProblems" EntitySet="TypeProblems" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MainService_TypesServices" Association="Self.FK_MainService_TypesServices">
+            <End Role="TypesServices" EntitySet="TypesServices" />
+            <End Role="MainService" EntitySet="MainService" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CRM15ModelContainer" CdmEntityContainer="EP">
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="CRM15Model.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="SubscriberID" ColumnName="SubscriberID" />
+                <ScalarProperty Name="SubscriberNomer" ColumnName="SubscriberNomer" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Place0fResidence" ColumnName="Place0fResidence" />
+                <ScalarProperty Name="ResidentialAddressID" ColumnName="ResidentialAddressID" />
+                <ScalarProperty Name="Seria" ColumnName="Seria" />
+                <ScalarProperty Name="Nomer" ColumnName="Nomer" />
+                <ScalarProperty Name="DivisionCode" ColumnName="DivisionCode" />
+                <ScalarProperty Name="IssuedBy" ColumnName="IssuedBy" />
+                <ScalarProperty Name="DateOfIssue" ColumnName="DateOfIssue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConnectingTheService">
+            <EntityTypeMapping TypeName="CRM15Model.ConnectingTheService">
+              <MappingFragment StoreEntitySet="ConnectingTheService">
+                <ScalarProperty Name="IDOfTheConnectedService" ColumnName="IDOfTheConnectedService" />
+                <ScalarProperty Name="IDServices" ColumnName="IDServices" />
+                <ScalarProperty Name="SubscribersID" ColumnName="SubscribersID" />
+                <ScalarProperty Name="ConnectionDate" ColumnName="ConnectionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="CRM15Model.Contracts">
+              <MappingFragment StoreEntitySet="Contracts">
+                <ScalarProperty Name="SubscribersID" ColumnName="SubscribersID" />
+                <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+                <ScalarProperty Name="DateOfCinclusion" ColumnName="DateOfCinclusion" />
+                <ScalarProperty Name="TypeContractID" ColumnName="TypeContractID" />
+                <ScalarProperty Name="PersonalAccount" ColumnName="PersonalAccount" />
+                <ScalarProperty Name="ReasonForTerminationID" ColumnName="ReasonForTerminationID" />
+                <ScalarProperty Name="TermibationDate" ColumnName="TermibationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emploe">
+            <EntityTypeMapping TypeName="CRM15Model.Emploe">
+              <MappingFragment StoreEntitySet="Emploe">
+                <ScalarProperty Name="IDEmploys" ColumnName="IDEmploys" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipment">
+            <EntityTypeMapping TypeName="CRM15Model.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="IDEquipment" ColumnName="IDEquipment" />
+                <ScalarProperty Name="NameOfEquipment" ColumnName="NameOfEquipment" />
+                <ScalarProperty Name="IDType" ColumnName="IDType" />
+                <ScalarProperty Name="IDMac" ColumnName="IDMac" />
+                <ScalarProperty Name="IDSerial" ColumnName="IDSerial" />
+                <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gender">
+            <EntityTypeMapping TypeName="CRM15Model.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="IDGende" ColumnName="IDGende" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstallationEquipment">
+            <EntityTypeMapping TypeName="CRM15Model.InstallationEquipment">
+              <MappingFragment StoreEntitySet="InstallationEquipment">
+                <ScalarProperty Name="InstallationEquipmentID" ColumnName="InstallationEquipmentID" />
+                <ScalarProperty Name="InstallationDate" ColumnName="InstallationDate" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+                <ScalarProperty Name="SubscriberID" ColumnName="SubscriberID" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Rental" ColumnName="Rental" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KindsAndTypesService">
+            <EntityTypeMapping TypeName="CRM15Model.KindsAndTypesService">
+              <MappingFragment StoreEntitySet="KindsAndTypesService">
+                <ScalarProperty Name="KindsAndTypesServiceID" ColumnName="KindsAndTypesServiceID" />
+                <ScalarProperty Name="TypeOfServiceID" ColumnName="TypeOfServiceID" />
+                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MACAdress">
+            <EntityTypeMapping TypeName="CRM15Model.MACAdress">
+              <MappingFragment StoreEntitySet="MACAdress">
+                <ScalarProperty Name="IDMACAdress" ColumnName="IDMACAdress" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MainService">
+            <EntityTypeMapping TypeName="CRM15Model.MainService">
+              <MappingFragment StoreEntitySet="MainService">
+                <ScalarProperty Name="CRMID" ColumnName="CRMID" />
+                <ScalarProperty Name="NumberCRM" ColumnName="NumberCRM" />
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="SubscriberID" ColumnName="SubscriberID" />
+                <ScalarProperty Name="ServicesID" ColumnName="ServicesID" />
+                <ScalarProperty Name="ServiceTypeID" ColumnName="ServiceTypeID" />
+                <ScalarProperty Name="ServiceStatusID" ColumnName="ServiceStatusID" />
+                <ScalarProperty Name="ProblemTypeID" ColumnName="ProblemTypeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ClosingDate" ColumnName="ClosingDate" />
+                <ScalarProperty Name="TypeOfServiceID" ColumnName="TypeOfServiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reasons">
+            <EntityTypeMapping TypeName="CRM15Model.Reasons">
+              <MappingFragment StoreEntitySet="Reasons">
+                <ScalarProperty Name="IDReasons" ColumnName="IDReasons" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rols">
+            <EntityTypeMapping TypeName="CRM15Model.Rols">
+              <MappingFragment StoreEntitySet="Rols">
+                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SerialNumbers">
+            <EntityTypeMapping TypeName="CRM15Model.SerialNumbers">
+              <MappingFragment StoreEntitySet="SerialNumbers">
+                <ScalarProperty Name="IDSerialNumbers" ColumnName="IDSerialNumbers" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servise">
+            <EntityTypeMapping TypeName="CRM15Model.Servise">
+              <MappingFragment StoreEntitySet="Servise">
+                <ScalarProperty Name="ServicesID" ColumnName="ServicesID" />
+                <ScalarProperty Name="Services" ColumnName="Services" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="CRM15Model.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="IDStatus" ColumnName="IDStatus" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeEquipments">
+            <EntityTypeMapping TypeName="CRM15Model.TypeEquipments">
+              <MappingFragment StoreEntitySet="TypeEquipments">
+                <ScalarProperty Name="IDTypeEquipment" ColumnName="IDTypeEquipment" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfService">
+            <EntityTypeMapping TypeName="CRM15Model.TypeOfService">
+              <MappingFragment StoreEntitySet="TypeOfService">
+                <ScalarProperty Name="TypeOfServiceID" ColumnName="TypeOfServiceID" />
+                <ScalarProperty Name="TypeOfService1" ColumnName="TypeOfService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeProblems">
+            <EntityTypeMapping TypeName="CRM15Model.TypeProblems">
+              <MappingFragment StoreEntitySet="TypeProblems">
+                <ScalarProperty Name="IDTypesOfProblems" ColumnName="IDTypesOfProblems" />
+                <ScalarProperty Name="Problem" ColumnName="Problem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesOfContracts">
+            <EntityTypeMapping TypeName="CRM15Model.TypesOfContracts">
+              <MappingFragment StoreEntitySet="TypesOfContracts">
+                <ScalarProperty Name="IDOfTheContract" ColumnName="IDOfTheContract" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypesServices">
+            <EntityTypeMapping TypeName="CRM15Model.TypesServices">
+              <MappingFragment StoreEntitySet="TypesServices">
+                <ScalarProperty Name="IDTypeServices" ColumnName="IDTypeServices" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
