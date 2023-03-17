@@ -13,10 +13,10 @@ namespace WPFMDK01Sesian2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class EP : DbContext
+    public partial class EP2 : DbContext
     {
-        public EP()
-            : base("name=EP")
+        public EP2()
+            : base("name=EP2")
         {
         }
     
@@ -40,6 +40,7 @@ namespace WPFMDK01Sesian2
         public virtual DbSet<SerialNumbers> SerialNumbers { get; set; }
         public virtual DbSet<Servise> Servise { get; set; }
         public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeEquipments> TypeEquipments { get; set; }
         public virtual DbSet<TypeOfService> TypeOfService { get; set; }
         public virtual DbSet<TypeProblems> TypeProblems { get; set; }

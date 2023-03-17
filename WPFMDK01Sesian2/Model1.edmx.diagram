@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0e383d4ea68c4d9084070dcfe274d73c" Name="Diagram1">
+      <Diagram DiagramId="db903345364f47ebbbc8c311dba24e1d" Name="Diagram1">
         <EntityTypeShape EntityType="CRM15Model.Clients" Width="1.5" PointX="3.75" PointY="14.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM15Model.ConnectingTheService" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM15Model.Contracts" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
@@ -20,6 +20,7 @@
         <EntityTypeShape EntityType="CRM15Model.SerialNumbers" Width="1.5" PointX="1.5" PointY="34.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM15Model.Servise" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM15Model.Status" Width="1.5" PointX="3.75" PointY="20.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CRM15Model.sysdiagrams" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM15Model.TypeEquipments" Width="1.5" PointX="1.5" PointY="36.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM15Model.TypeOfService" Width="1.5" PointX="3.75" PointY="22.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CRM15Model.TypeProblems" Width="1.5" PointX="3.75" PointY="25.375" IsExpanded="true" />

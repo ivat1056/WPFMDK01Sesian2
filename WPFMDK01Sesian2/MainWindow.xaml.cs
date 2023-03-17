@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFMDK01Sesian2.Class;
+using WPFMDK01Sesian2.Pages;
 
 namespace WPFMDK01Sesian2
 {
@@ -23,7 +25,30 @@ namespace WPFMDK01Sesian2
         public MainWindow()
         {
             InitializeComponent();
-            Base.ep = new EP();
+            BaseClass.ep = new EP2();
+            FrameClass.frame = frame;
+            FrameClass.frame.Navigate(new ClientsPage());
+            cbEmp.ItemsSource = BaseClass.ep.Emploe.ToList();
+            cbEmp.DisplayMemberPath = "Surname";
+            cbEmp.SelectedValuePath = "IDEmploys";
+            cbEmp.SelectedIndex = 0;
+
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CRM_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAbon_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
